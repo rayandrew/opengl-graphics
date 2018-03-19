@@ -1,6 +1,13 @@
 CC=g++
-CFLAGS=-c -Wall -std=c++1z
-LDFLAGS=-framework OpenGL -lglfw -lglew -std=c++14
+CFLAGS=-c -Wall -std=c++14
+LDFLAGS=-lglfw -std=c++14
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+	LDFLAGS += -framework OpenGL -lglew
+endif
+ifeq ($(UNAME_S),Linux)
+	LDFLAGS += -lGL -lGLEW -lGLU
+endif
 
 SOURCES=$(wildcard ./src/*.cpp) $(wildcard ./src/**/*.cpp)
 OBJECTS=$(SOURCES:.cpp=.o)

@@ -33,7 +33,7 @@ public:
   GLFWwindow *window;
 
 private:
-  static inline unique_ptr<Engine> pointerInstance;
+  static unique_ptr<Engine> pointerInstance;
 
   void initOpenGL();
 

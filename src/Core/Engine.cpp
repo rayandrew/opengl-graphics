@@ -1,6 +1,6 @@
 #include "Engine.hpp"
 
-unique_ptr<Engine> pointerInstance = nullptr;
+unique_ptr<Engine> Engine::pointerInstance = nullptr;
 
 unique_ptr<Engine> &Engine::instance() { return pointerInstance; }
 
